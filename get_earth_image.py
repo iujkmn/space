@@ -32,6 +32,7 @@ def main():
         description='Скачивает фотографии космоса с разных сайтов')
     parser.add_argument('number_of_images',
                         type=int,
+                        default=4,
                         help='количество изображений')
     args = parser.parse_args()
     get_earth_image(folder_name, args.number_of_images)
