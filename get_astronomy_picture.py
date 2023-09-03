@@ -3,10 +3,12 @@ import requests
 from pathlib import Path
 import argparse
 import os
+import json
 
 
-def get_astronomy_picture(digit,api_key):
+def get_APOD(digit):
     url = "https://api.nasa.gov/planetary/apod?"
+    api_key = os.environ['API_KEY']
     params = {
         "api_key": api_key,
         "count": str(digit)
@@ -14,8 +16,9 @@ def get_astronomy_picture(digit,api_key):
     response = requests.get(url, params=params)
     response.raise_for_status()
     links = []
+    text = response.json()
     for number in range(digit):
-        url = response.json()[number]['url']
+        url = text[number]['url']
         links.append(url)
     for index, url in enumerate(links):
         path = f"images/nasa_apod{index}{get_extension(url)}"
