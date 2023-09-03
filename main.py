@@ -4,21 +4,17 @@ import time
 import random
 import argparse
 
-def post_photo(secs, token, chat_id):
+def post_photo(secs, token, chat_id)::
+    token = os.environ['TOKEN']
     bot = telegram.Bot(token=token)
-    paths = []
-    counter = 0
-    for address, dirs, files in os.walk("images"):
-        for name in files:
-            path = os.path.join(address, name)
-            paths.append(path)
     while True:
-        if counter >= len(paths):
-            random.shuffle(paths)
-        for path in paths:
-            bot.send_document(chat_id=chat_id,
-                              document=open(path, 'rb'))
-            counter += 1
+        files = os.listdir("images")
+        random.shuffle(files)
+        for file in files:
+            path = os.path.join("images", file)
+            with open(path,"rb") as document:
+                bot.send_document(chat_id="@cosmo_image",
+                                  document=document)
             time.sleep(secs)
 
 def main():
