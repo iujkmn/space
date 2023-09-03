@@ -3,6 +3,15 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.breakpoints
+.env
+.replit
+replit.nix
+replit_zip_error_log.txt
+poetry.lock
+pyproject.toml
+telegram-bot.py
+
 # C extensions
 *.so
 
