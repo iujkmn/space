@@ -6,7 +6,7 @@ from pathlib import Path
 import argparse
 
 
-def get_EPIC(folder_name, number_of_images):
+def get_EPI(folder_name, number_of_images):
     counter = 0
     url = "https://api.nasa.gov/EPIC/api/natural/image"
     api_key = os.environ['API_KEY']
