@@ -6,7 +6,7 @@ from pathlib import Path
 import argparse
 
 
-def get_EPI(folder_name, number_of_images):
+def get_earth_image(folder_name, number_of_images):
     counter = 0
     url = "https://api.nasa.gov/EPIC/api/natural/image"
     api_key = os.environ['API_KEY']
@@ -34,7 +34,7 @@ def main():
                         type=int,
                         help='количество изображений')
     args = parser.parse_args()
-    get_EPIC(folder_name, args.number_of_images)
+    get_earth_image(folder_name, args.number_of_images)
 
 
 if __name__ == '__main__':
