@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 Для получения необходимых изображений необходимо написать один из вариантов:
 ```
-python get_EPIC_photos.py/get_APOD_photos.py/fetch_spacex_images.py
+python get_astronomy_picture.py/get_earth_image.py/fetch_spacex_images.py
 ```
 
 ### Переменные окружения
