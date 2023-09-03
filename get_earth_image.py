@@ -6,10 +6,9 @@ from pathlib import Path
 import argparse
 
 
-def get_earth_image(folder_name, number_of_images):
+def get_earth_image(folder_name, number_of_images,api_key):
     counter = 0
     url = "https://api.nasa.gov/EPIC/api/natural/image"
-    api_key = os.environ['API_KEY']
     params = {"api_key": api_key}
     response = requests.get(url, params=params)
     response.raise_for_status()
@@ -27,7 +26,7 @@ def get_earth_image(folder_name, number_of_images):
 def main():
     folder_name = "images"
     Path(folder_name).mkdir(parents=True, exist_ok=True)
-
+    api_key = os.environ['API_KEY']
     parser = argparse.ArgumentParser(
         description='Скачивает фотографии космоса с разных сайтов')
     parser.add_argument('number_of_images',
@@ -35,7 +34,7 @@ def main():
                         default=4,
                         help='количество изображений')
     args = parser.parse_args()
-    get_earth_image(folder_name, args.number_of_images)
+    get_earth_image(folder_name, args.number_of_images,api_key)
 
 
 if __name__ == '__main__':
