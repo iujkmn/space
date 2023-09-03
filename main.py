@@ -4,8 +4,7 @@ import time
 import random
 import argparse
 
-def post_photo(secs):
-    token = os.environ['TOKEN']
+def post_photo(secs, token, chat_id):
     bot = telegram.Bot(token=token)
     paths = []
     counter = 0
@@ -17,20 +16,26 @@ def post_photo(secs):
         if counter >= len(paths):
             random.shuffle(paths)
         for path in paths:
-            bot.send_document(chat_id="@cosmo_image",
+            bot.send_document(chat_id=chat_id,
                               document=open(path, 'rb'))
             counter += 1
             time.sleep(secs)
 
 def main():
+    chat_id = os.environ['CHAT_ID'] 
+    token = os.environ['TOKEN']
     parser = argparse.ArgumentParser(
         description='Публикует фотографии космоса в телеграм-канал')
     parser.add_argument('secs',
                         type=int,
                         default=14400,
                         help='количество секунд')
+    parser.add_argument('--chat_id',
+                        dest='chat_id',
+                        default=chat_id,
+                        help='чат айди')
     args = parser.parse_args()
-    post_photo(args.secs)
+    post_photo(args.secs, token, args.chat_id)
 
 
 if __name__ == '__main__':
