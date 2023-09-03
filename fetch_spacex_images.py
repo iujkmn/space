@@ -19,7 +19,7 @@ def main():
     folder_name = "images"
     Path(folder_name).mkdir(parents=True, exist_ok=True)
     parser = argparse.ArgumentParser(
-    description='Скачивает фотографии космоса с разных сайтов'
+        description='Скачивает фотографии космоса с разных сайтов'
     )
     parser.add_argument('--id', dest='launch_id', default="5eb87d47ffd86e000604b38a", help='id запуска')
     args = parser.parse_args()
