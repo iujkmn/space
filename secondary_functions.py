@@ -15,5 +15,5 @@ def get_image(url, path, params):
 def get_extension(url):
     str_url = urllib.parse.unquote(url)
     url = urlsplit(str_url).path
-    return (os.path.splitext(url))[1]
+    return os.path.splitext(url)[1]
 
