@@ -5,7 +5,7 @@ import argparse
 import os
 
 
-def get_APOD(digit):
+def get_astronomy_picture(digit):
     url = "https://api.nasa.gov/planetary/apod?"
     api_key = os.environ['API_KEY']
     params = {
@@ -29,10 +29,11 @@ def main():
     parser = argparse.ArgumentParser(
         description='Скачивает фотографии космоса с разных сайтов')
     parser.add_argument('digit',
+                        default=4,
                         type=int,
                         help='количесто изображений')
     args = parser.parse_args()
-    get_APOD(args.digit)
+    get_astronomy_picture(args.digit)
 
 
 if __name__ == '__main__':
