@@ -6,14 +6,13 @@ import argparse
 
 
 def fetch_spacex_last_launch(launch_id):
-    url = "https://api.spacexdata.com/v5/launches"
-    params = {"id": launch_id}
+    url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     response = requests.get(url, params=params)
     response.raise_for_status()
     urls = response.json()[24]['links']['flickr']['original']
     for index, url in enumerate(urls):
         path = f"images/spacex_{index}{get_extension(url)}"
-        get_image(url, path, params)
+        get_image(url, path)
 
 def main():
     folder_name = "images"
