@@ -8,7 +8,7 @@ import json
 
 def get_APOD(digit):
     url = "https://api.nasa.gov/planetary/apod?"
-    api_key = os.environ['API_KEY']
+    api_key = os.environ['TG_API_KEY']
     params = {
         "api_key": api_key,
         "count": str(digit)
@@ -28,7 +28,7 @@ def get_APOD(digit):
 def main():
     folder_name = "images"
     Path(folder_name).mkdir(parents=True, exist_ok=True)
-    api_key = os.environ['API_KEY']
+    api_key = os.environ['TG_API_KEY']
     parser = argparse.ArgumentParser(
         description='Скачивает фотографии космоса с разных сайтов')
     parser.add_argument('digit',
