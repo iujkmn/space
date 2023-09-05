@@ -1,1 +1,0 @@
-9999999999{"name": "python-telegram-bot", "version": "13.2", "summary": "We have made you a wrapper you can't refuse", "platform": "", "requires_dist": ["certifi", "cryptography", "tornado (>=5.1)", "APScheduler (==3.6.3)", "pytz (>=2018.6)", "ujson ; extra == 'json'", "PySocks ; extra == 'socks'"], "requires_python": ">=3.6", "files": [], "_cache_version": "1.0.0"}
