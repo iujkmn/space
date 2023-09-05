@@ -5,7 +5,7 @@ import random
 import argparse
 
 def post_photo(secs, token, chat_id)::
-    token = os.environ['TOKEN']
+    token = os.environ['TG_TOKEN']
     bot = telegram.Bot(token=token)
     while True:
         files = os.listdir("images")
@@ -18,8 +18,8 @@ def post_photo(secs, token, chat_id)::
             time.sleep(secs)
 
 def main():
-    chat_id = os.environ['CHAT_ID'] 
-    token = os.environ['TOKEN']
+    chat_id = os.environ['TG_CHAT_ID'] 
+    token = os.environ['TG_TOKEN']
     parser = argparse.ArgumentParser(
         description='Публикует фотографии космоса в телеграм-канал')
     parser.add_argument('secs',
