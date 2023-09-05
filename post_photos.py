@@ -12,7 +12,7 @@ def post_photos(secs, token, chat_id):
         for file in files:
             path = os.path.join("images", file)
             with open(path,"rb") as document:
-                bot.send_document(chat_id="@cosmo_image",
+                bot.send_document(chat_id=chat_id,
                                   document=document)
             time.sleep(secs)
 
