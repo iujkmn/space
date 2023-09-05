@@ -4,7 +4,7 @@ import time
 import random
 import argparse
 
-def post_photo(secs, token, chat_id)::
+def post_photos(secs, token, chat_id)::
     token = os.environ['TG_TOKEN']
     bot = telegram.Bot(token=token)
     while True:
@@ -31,7 +31,7 @@ def main():
                         default=chat_id,
                         help='чат айди')
     args = parser.parse_args()
-    post_photo(args.secs, token, args.chat_id)
+    post_photos(args.secs, token, args.chat_id)
 
 
 if __name__ == '__main__':
