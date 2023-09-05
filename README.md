@@ -32,9 +32,9 @@ python get_astronomy_picture.py/get_earth_image.py/fetch_spacex_images.py
 Пример содержания файла `.env`:
 
 ```
-API_KEY = "nasa-token"
+NASA_API_KEY = "nasa-token"
 TG_TOKEN = "bot-token"
-CHAT_ID = "@chat_id"
+TG_CHAT_ID = "@chat_id"
 ```
 Получить токен `API_KEY` можно на сайте [NASA](https://api.nasa.gov).
 Получить токен `TELEGRAM_BOT_TOKEN` можно у отца ботов.
