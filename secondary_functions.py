@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 
 
-def get_image(url, path, params):
+def get_image(url, path, params=None):
     response = requests.get(url, params)
     response.raise_for_status()
     with open(path, 'wb') as file:
