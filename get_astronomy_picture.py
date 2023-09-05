@@ -6,7 +6,7 @@ import os
 import json
 
 
-def get_APOD(digit):
+def get_astronomy_picture(digit,api_key):
     url = "https://api.nasa.gov/planetary/apod?"
     api_key = os.environ['TG_API_KEY']
     params = {
