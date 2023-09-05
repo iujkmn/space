@@ -26,7 +26,7 @@ def get_earth_image(folder_name, number_of_images,api_key):
 def main():
     folder_name = "images"
     Path(folder_name).mkdir(parents=True, exist_ok=True)
-    api_key = os.environ['API_KEY']
+    api_key = os.environ['TG_API_KEY']
     parser = argparse.ArgumentParser(
         description='Скачивает фотографии космоса с разных сайтов')
     parser.add_argument('number_of_images',
