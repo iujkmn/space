@@ -4,8 +4,7 @@ import time
 import random
 import argparse
 
-def post_photos(secs, token, chat_id)::
-    token = os.environ['TG_TOKEN']
+def post_photos(secs, token, chat_id):
     bot = telegram.Bot(token=token)
     while True:
         files = os.listdir("images")
