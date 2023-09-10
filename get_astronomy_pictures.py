@@ -6,7 +6,7 @@ import os
 import json
 
 
-def get_astronomy_picture(digit,api_key):
+def get_astronomy_pictures(digit,api_key):
     url = "https://api.nasa.gov/planetary/apod?"
     api_key = os.environ['TG_API_KEY']
     params = {
@@ -36,7 +36,7 @@ def main():
                         default=4,
                         help='количесто изображений')
     args = parser.parse_args()
-    get_astronomy_picture(args.digit,api_key)
+    get_astronomy_pictures(args.digit,api_key)
 
 
 if __name__ == '__main__':
