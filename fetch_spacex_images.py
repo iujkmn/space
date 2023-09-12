@@ -4,15 +4,25 @@ from pathlib import Path
 import argparse
 
 
-
 def fetch_spacex_last_launch(launch_id):
-    url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
-    response = requests.get(url, params=params)
+    if launch_id:
+        url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
+    else:
+        url = "https://api.spacexdata.com/v5/launches/"
+    response = requests.get(url)
     response.raise_for_status()
-    urls = response.json()[24]['links']['flickr']['original']
-    for index, url in enumerate(urls):
-        path = f"images/spacex_{index}{get_extension(url)}"
-        get_image(url, path)
+    links = response.json()
+    if launch_id:
+        urls = links['links']['flickr']['original']
+    else:
+        urls = []
+        for link in links:
+            if link['links']['flickr']['original']:
+                urls += link['links']['flickr']['original']
+    for index, photo_url in enumerate(urls):
+        path = f"images/spacex_{index}{get_extension(photo_url)}"
+        get_image(photo_url, path)
+
 
 def main():
     folder_name = "images"
