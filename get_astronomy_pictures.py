@@ -14,13 +14,10 @@ def get_astronomy_pictures(digit,api_key):
     }
     response = requests.get(url, params=params)
     response.raise_for_status()
-    links = []
-    list_response = response.json()
+    list_response = response.json()  
     for number in range(digit):
         url = list_response[number]['url']
-        links.append(url)
-    for index, url in enumerate(links):
-        path = f"images/nasa_apod{index}{get_extension(url)}"
+        path = f"images/nasa_apod{number}{get_extension(url)}"
         get_image(url, path, params)
 
 
