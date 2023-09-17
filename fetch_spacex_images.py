@@ -4,11 +4,7 @@ from pathlib import Path
 import argparse
 
 
-def fetch_spacex_last_launch(launch_id):
-    if launch_id:
-        url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
-    else:
-        url = "https://api.spacexdata.com/v5/launches/"
+def fetch_spacex_last_launch(launch_id, url):
     response = requests.get(url)
     response.raise_for_status()
     links = response.json()
@@ -28,11 +24,17 @@ def main():
     folder_name = "images"
     Path(folder_name).mkdir(parents=True, exist_ok=True)
     parser = argparse.ArgumentParser(
-        description='Скачивает фотографии космоса с разных сайтов'
-    )
-    parser.add_argument('--id', dest='launch_id', default="5eb87d47ffd86e000604b38a", help='id запуска')
+        description='Скачивает фотографии космоса с разных сайтов')
+    parser.add_argument('--id',
+                        dest='launch_id',
+                        default="5eb87d47ffd86e000604b38a",
+                        help='id запуска')
     args = parser.parse_args()
-    fetch_spacex_last_launch(args.launch_id)
+    if args.launch_id:
+        url = f"https://api.spacexdata.com/v5/launches/{args.launch_id}"
+    else:
+        url = "https://api.spacexdata.com/v5/launches/"
+    fetch_spacex_last_launch(args.launch_id, url)
 
 
 if __name__ == '__main__':
