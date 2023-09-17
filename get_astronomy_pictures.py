@@ -8,7 +8,6 @@ import json
 
 def get_astronomy_pictures(digit,api_key):
     url = "https://api.nasa.gov/planetary/apod?"
-    api_key = os.environ['TG_API_KEY']
     params = {
         "api_key": api_key,
         "count": str(digit)
