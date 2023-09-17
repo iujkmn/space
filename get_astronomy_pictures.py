@@ -28,7 +28,7 @@ def get_astronomy_pictures(digit,api_key):
 def main():
     folder_name = "images"
     Path(folder_name).mkdir(parents=True, exist_ok=True)
-    api_key = os.environ['TG_API_KEY']
+    api_key = os.environ['NASA_API_KEY']
     parser = argparse.ArgumentParser(
         description='Скачивает фотографии космоса с разных сайтов')
     parser.add_argument('digit',
