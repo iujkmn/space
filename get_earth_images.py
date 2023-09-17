@@ -12,9 +12,9 @@ def get_earth_images(folder_name, number_of_images,api_key):
     params = {"api_key": api_key}
     response = requests.get(url, params=params)
     response.raise_for_status()
-    for launch_information in response.json():
-        date = launch_information['date']
-        name_of_image = launch_information['image']
+    for epic_photo in response.json():
+        date = epic_photo['date']
+        name_of_image = epic_photo['image']
         date = datetime.datetime.fromisoformat(date).strftime("%Y/%m/%d")
         url = f"https://api.nasa.gov/EPIC/archive/natural/{date}/png/{name_of_image}.png"
         path = os.path.join(folder_name, f"{name_of_image}.png")
