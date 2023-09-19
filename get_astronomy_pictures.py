@@ -14,9 +14,9 @@ def get_astronomy_pictures(digit,api_key):
     }
     response = requests.get(url, params=params)
     response.raise_for_status()
-    list_response = response.json()  
+    apod_response = response.json()  
     for number in range(digit):
-        url = list_response[number]['url']
+        url = apod_response[number]['url']
         path = f"images/nasa_apod{number}{get_extension(url)}"
         get_image(url, path, params)
 
