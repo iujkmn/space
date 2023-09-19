@@ -30,12 +30,10 @@ def main():
                         default="5eb87d47ffd86e000604b38a",
                         help='id запуска')
     args = parser.parse_args()
-    if args.launch_id:
-        url = f"https://api.spacexdata.com/v5/launches/{args.launch_id}"
-    else:
-        url = "https://api.spacexdata.com/v5/launches/"
+    url = f"https://api.spacexdata.com/v5/launches/{args.launch_id}"
     fetch_spacex_last_launch(args.launch_id, url)
 
 
 if __name__ == '__main__':
     main()
+
